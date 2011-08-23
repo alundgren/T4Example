@@ -1,16 +1,19 @@
 ﻿<#@ template language="C#" #>
 <# var pocos = new [] {
-	Tuple.Create("FirstName", "string"), 
-	Tuple.Create("LastName", "string"), 
-	Tuple.Create("Age", "int")}; #>
-public partial class Person {
+    Tuple.Create("FirstName", "string"), 
+    Tuple.Create("LastName", "string"), 
+    Tuple.Create("Age", "int")}; #>
+namespace CodeGenPocos
+{
+    public partial class Person {
     <# foreach(var t in pocos) {#>
 
-	protected <#= t.Item2#> _<#= t.Item1.ToLowerInvariant()#>;
-    public virtual <#= t.Item2#> <#= t.Item1#>
-    {
-        get { return _<#= t.Item1.ToLowerInvariant()#>; }
-        set { _<#= t.Item1.ToLowerInvariant()#> = value; }
+        protected <#= t.Item2#> _<#= t.Item1.ToLowerInvariant()#>;
+        public virtual <#= t.Item2#> <#= t.Item1#>
+        {
+            get { return _<#= t.Item1.ToLowerInvariant()#>; }
+            set { _<#= t.Item1.ToLowerInvariant()#> = value; }
+        }
+    <#}#>
     }
-	<#}#>
 }

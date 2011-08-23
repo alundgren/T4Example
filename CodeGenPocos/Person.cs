@@ -7,6 +7,12 @@ namespace CodeGenPocos
 {
     public partial class Person
     {
-        //Any code besides the properties
+        public string FullName 
+        {
+            get 
+            {
+                return FirstName + " " + LastName;
+            }
+        }
     }
 }
